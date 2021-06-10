@@ -33,7 +33,11 @@ int		ft_strnrcmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
-	while (s1[--i] == s2[--j] && i >= 0 && j >= 0)
+	if (i < n)
+		return (-(unsigned char)s2[--i]);
+	else if (j < n)
+		return ((unsigned char)s1[--j]);
+	while (s1[--i] == s2[--j])
 	{
 		n--;
 		if (n == 0)
